@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Ismlar Ma\'nosi 2023</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="liked">Yoqtirilganlar</string>
+    <string name="names_title">Ismlar Ma\'nosi 2023</string>
+    <string name="liked_title">Yoqtirilganlar</string>
+    <string name="search">Qidiruv</string>
+    <string name="could_not_find">Ismingiz topilmadimi?</string>
+    <string name="rate_the_app">Dasturni baholang</string>
+    <string name="share_the_app">Dasturni ulashing</string>
+    <string name="our_other_apps">Boshqa ilovalar</string>
+    <string name="change_language_style">Ilova yozuvini o\'zgartirin</string>
+    <string name="lotincha">LOTINCHA</string>
+    <string name="kirilcha">КИРИЛЧА</string>
+    <string name="icon">icon</string>
+    <string name="search_hint">Ism kiriting . . .</string>
+</resources>

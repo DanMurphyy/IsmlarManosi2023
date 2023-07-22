@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/namesFragment">
+
+    <fragment
+        android:id="@+id/namesFragment"
+        android:name="com.hfad.ismlarmanosi2023.NamesFragment"
+        android:label="@string/names_title"
+        tools:layout="@layout/fragment_names" >
+        <action
+            android:id="@+id/action_namesFragment_to_likedFragment"
+            app:destination="@id/likedFragment"
+            app:popUpTo="@id/namesFragment" />
+        <action
+            android:id="@+id/action_namesFragment_to_meaningFragment"
+            app:destination="@id/meaningFragment"
+            app:popUpTo="@id/namesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/meaningFragment"
+        android:name="com.hfad.ismlarmanosi2023.MeaningFragment"
+        android:label="@string/search"
+        tools:layout="@layout/fragment_meaning" />
+    <fragment
+        android:id="@+id/likedFragment"
+        android:name="com.hfad.ismlarmanosi2023.LikedFragment"
+        android:label="@string/liked_title"
+        tools:layout="@layout/fragment_liked" />
+</navigation>
