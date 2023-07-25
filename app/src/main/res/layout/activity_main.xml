@@ -39,7 +39,7 @@
 
         <fragment
             android:id="@+id/fragment_menu"
-            android:name="com.hfad.ismlarmanosi2023.MenuFragment"
+            android:name="com.hfad.ismlarmanosi2023.fragments.MenuFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </fragment>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="start"
+    android:background="@color/lightGray"
+    android:orientation="vertical"
+    android:padding="0.2dp">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttom_names_state"
+        android:backgroundTint="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingStart="40dp"
+        android:padding="10dp"
+        android:text="@string/dilshodbek"
+        android:shadowColor="@color/background"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:textColor="@color/black"
+        android:textSize="@dimen/name_list_size"
+        android:textStyle="italic" />
+</LinearLayout>

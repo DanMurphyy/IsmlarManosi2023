@@ -1,4 +1,4 @@
-package com.hfad.ismlarmanosi2023
+package com.hfad.ismlarmanosi2023.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

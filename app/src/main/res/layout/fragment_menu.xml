@@ -6,7 +6,7 @@
     android:background="@drawable/menu"
     android:orientation="vertical"
     android:padding="5dp"
-    tools:context=".MenuFragment">
+    tools:context=".fragments.MenuFragment">
 
     <TextView
         android:layout_width="wrap_content"
@@ -76,6 +76,34 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll_share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:background="@drawable/buttom_state"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:padding="@dimen/padding_size">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/share_the_app"
+            android:textColor="@color/text_color"
+            android:textSize="@dimen/text_size"
+            android:textStyle="bold|italic" />
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="end"
+            android:contentDescription="@string/icon"
+            android:src="@drawable/sharing" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/ll_rate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -101,34 +129,6 @@
             android:layout_gravity="end"
             android:contentDescription="@string/icon"
             android:src="@drawable/rating" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_share"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:background="@drawable/buttom_state"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        android:padding="@dimen/padding_size">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/share_the_app"
-            android:textColor="@color/text_color"
-            android:textSize="@dimen/text_size"
-            android:textStyle="bold|italic" />
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="end"
-            android:contentDescription="@string/icon"
-            android:src="@drawable/share" />
     </LinearLayout>
 
     <LinearLayout

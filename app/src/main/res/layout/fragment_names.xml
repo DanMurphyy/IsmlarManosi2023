@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NamesFragment">
+    tools:context=".fragments.names.NamesFragment">
 
     <LinearLayout
+        android:id="@+id/lo_search"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -20,24 +21,58 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
+        <SearchView
             android:id="@+id/search"
             android:layout_width="0dp"
+            android:iconifiedByDefault="false"
+            android:searchHintIcon="@color/white"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@null"
-            android:hint="@string/search_hint"
-            android:inputType="textPersonName"
-            android:paddingStart="30dp" />
-
-        <ImageView
-            android:id="@+id/search_icon"
-            android:layout_width="30dp"
-            android:layout_height="50dp"
-            android:contentDescription="@string/icon"
-            android:src="@drawable/ic_search" />
+            android:queryHint="@string/search_hint"
+            android:importantForAutofill="no"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp" />
 
     </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lo_search">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nameList_LW"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/lightGray"
+                android:gravity="center_horizontal"
+                android:text="@string/names_lw"
+                android:shadowColor="@color/blue_moss_green"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="1"
+                android:textColor="@color/background" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

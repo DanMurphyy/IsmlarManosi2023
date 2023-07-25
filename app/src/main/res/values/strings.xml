@@ -14,4 +14,6 @@
     <string name="kirilcha">КИРИЛЧА</string>
     <string name="icon">icon</string>
     <string name="search_hint">Ism kiriting . . .</string>
+    <string name="names_lw">Ismlar</string>
+    <string name="dilshodbek">Dilshodbek</string>
 </resources>
