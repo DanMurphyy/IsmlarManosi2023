@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    tools:context=".fragments.MeaningFragment">
+    tools:context=".fragments.meaning.MeaningFragment">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/lo_cardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardCornerRadius="25dp">
@@ -37,7 +38,7 @@
             <TextView
                 android:id="@+id/meaning_gender"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:gravity="center"
                 android:text="@string/dilshodbek"
                 android:textAlignment="center"
@@ -48,7 +49,7 @@
                 android:layout_height="1dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
-                android:background="@color/black" />
+                android:background="@color/light_green" />
 
             <TextView
                 android:id="@+id/meaning_meaning"
@@ -65,40 +66,48 @@
                 android:id="@+id/meaning_origin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="30dp"
-                android:gravity="end"
                 android:layout_gravity="end"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="end"
+                android:text="@string/dilshodbek"
                 android:textColor="@color/magic_mint"
-                android:textStyle="bold"
-                android:text="@string/dilshodbek" />
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/photo_m"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:src="@drawable/boy1"
-                android:layout_gravity="center"/>
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:src="@drawable/boy1" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:orientation="horizontal"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_margin="30dp"
-                android:layout_height="wrap_content">
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="horizontal">
 
                 <ImageView
                     android:id="@+id/share_m"
                     android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:layout_marginEnd="10dp"
-                    android:src="@drawable/sharing_m"
-                    android:layout_height="50dp"/>
+                    android:background="@drawable/buttom_names_state"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/sharing_m" />
 
                 <ImageView
                     android:id="@+id/like_m"
                     android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/buttom_names_state"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:layout_marginStart="10dp"
-                    android:src="@drawable/ic_liked"
-                    android:layout_height="50dp"/>
+                    android:src="@drawable/ic_liked" />
 
             </LinearLayout>
 

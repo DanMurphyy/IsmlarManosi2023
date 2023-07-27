@@ -14,6 +14,7 @@ import com.hfad.ismlarmanosi2023.data.NamesViewModel
 import com.hfad.ismlarmanosi2023.databinding.FragmentNamesBinding
 import com.hfad.ismlarmanosi2023.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
+import jp.wasabeef.recyclerview.animators.LandingAnimator
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -23,6 +24,7 @@ class NamesFragment : Fragment() {
 
     private val adapter: NamesAdapter by lazy { NamesAdapter() }
     private val nNamesViewModel: NamesViewModel by viewModels()
+
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
@@ -47,6 +49,7 @@ class NamesFragment : Fragment() {
             }
         }
 
+
         return (binding.root)
     }
 
@@ -54,6 +57,9 @@ class NamesFragment : Fragment() {
         val recyclerView = binding.recyclerviewList
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.itemAnimator = LandingAnimator().apply {
+            addDuration = 200
+        }
     }
 
     private fun searchList() {
@@ -87,8 +93,13 @@ class NamesFragment : Fragment() {
         lifecycleScope.launch {
             nNamesViewModel.searchName(searchQuery).collect { list ->
                 list?.let {
-                    val sortedList = it.sortedBy { namesData -> namesData.name }
-                    adapter.setData(sortedList)
+                    if (it.isEmpty()) {
+                        showEmptyDatabaseView(true)
+                    } else {
+                        showEmptyDatabaseView(false)
+                        val sortedList = it.sortedBy { namesData -> namesData.name }
+                        adapter.setData(sortedList)
+                    }
                 }
             }
         }
@@ -104,6 +115,16 @@ class NamesFragment : Fragment() {
             R.id.menu_liked -> findNavController().navigate(R.id.action_namesFragment_to_likedFragment)
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun showEmptyDatabaseView(emptyDatabase: Boolean) {
+        if (emptyDatabase) {
+            binding.loNames.visibility = View.INVISIBLE
+            binding.noNamesLo.visibility = View.VISIBLE
+        } else {
+            binding.loNames.visibility = View.VISIBLE
+            binding.noNamesLo.visibility = View.INVISIBLE
+        }
     }
 
 }

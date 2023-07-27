@@ -14,4 +14,4 @@ data class NamesData(
     val gender: String,
     val meaning: String,
     val origin: String,
-    ): Parcelable
+) : Parcelable
