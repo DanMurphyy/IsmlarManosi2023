@@ -1,5 +1,6 @@
 package com.hfad.ismlarmanosi2023
 
+import android.content.Context
 import android.graphics.Rect
 import android.os.Bundle
 import android.view.MotionEvent
@@ -12,23 +13,40 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.appbar.MaterialToolbar
 import com.hfad.ismlarmanosi2023.databinding.ActivityMainBinding
+import com.hfad.ismlarmanosi2023.language.MyContextWrapper
+import com.hfad.ismlarmanosi2023.language.MyPreference
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.HiltAndroidApp
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+
+    private lateinit var myPreference: MyPreference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setupToolbarAndNavigation()
+    }
+
+    public override fun attachBaseContext(newbase: Context?) {
+        myPreference = MyPreference(newbase!!)
+        val lang: String? = myPreference.getLoginCount()
+        super.attachBaseContext(MyContextWrapper.wrap(newbase, lang!!))
+    }
+
+
+    fun setupToolbarAndNavigation() {
+
         val toolbar: MaterialToolbar = binding.toolbar
         setSupportActionBar(toolbar)
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
-        val drawer: DrawerLayout = binding.loDrawer
+        val drawer: DrawerLayout = findViewById(R.id.lo_drawer)
         val builder = AppBarConfiguration.Builder(navController.graph)
         builder.setOpenableLayout(drawer)
         val appBarConfiguration = builder.build()

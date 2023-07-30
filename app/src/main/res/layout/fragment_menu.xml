@@ -12,11 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="25dp"
-        android:text="@string/app_name"
+        android:layout_margin="10dp"
+        android:text="@string/menu"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -168,7 +168,7 @@
         android:src="@drawable/menuga" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
@@ -184,12 +184,14 @@
             android:textStyle="bold|italic" />
 
         <RadioGroup
+            android:id="@+id/radio_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/lotincha"
+                android:id="@+id/rb_lotincha"
                 style="@style/Widget.AppCompat.CompoundButton.Switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -197,7 +199,7 @@
                 android:text="@string/lotincha" />
 
             <RadioButton
-                android:id="@+id/kirilcha"
+                android:id="@+id/rb_kirilcha"
                 style="@style/Widget.AppCompat.CompoundButton.Switch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

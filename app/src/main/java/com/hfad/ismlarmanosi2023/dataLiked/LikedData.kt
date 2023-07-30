@@ -12,4 +12,5 @@ data class LikedData(
     var gender: String,
     var meaning: String,
     var origin: String,
+    var imageIndex: Int,
 )

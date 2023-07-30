@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Исмлар Маъноси 2023</string>
+    <string name="hello_blank_fragment">Салом бўш фрагмент</string>
+    <string name="liked">Ёқтирилганлар</string>
+    <string name="names_title">Исмлар Маъноси</string>
+    <string name="liked_title">Ёқтирилганлар</string>
+    <string name="search">Қидирув</string>
+    <string name="could_not_find">Исмингиз топилмадими?</string>
+    <string name="rate_the_app">Дастурни баҳоланг</string>
+    <string name="share_the_app">Дастурни улашинг</string>
+    <string name="our_other_apps">Бошқа иловалар</string>
+    <string name="change_language_style">Илова ёзувини ўзгартирин</string>
+    <string name="lotincha">LOTINCHA</string>
+    <string name="kirilcha">КИРИЛЧА</string>
+    <string name="icon">иконка</string>
+    <string name="search_hint">Исм киритинг . . .</string>
+    <string name="names_lw">Исмлар</string>
+    <string name="dilshodbek">Дилшодбек</string>
+    <string name="succesfullyAdded">Муваффақиятли қўшилди!</string>
+    <string name="liked_list_text">Бу йер сизнинг \'Ёқтирган\' исмларингиз рўйхати учун жой. \'Ёқтиришни\' ўзингизни яқинларингиз исмидан бошланг!</string>
+    <string name="not_found_name">Ийе!! Бундай исм топилмадику!? </string>
+    <string name="menu">Меню</string>
+</resources>

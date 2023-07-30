@@ -19,4 +19,6 @@
     <string name="succesfullyAdded">Muvaffaqiyatli qo\'shildi!</string>
     <string name="liked_list_text">Bu yer siznining \'Yoqtirgan\' ismlaringiz royxati uchun joy. \'Yoqtirishni\' o\'zingizni yaqinlaringiz ismidan boshlang!</string>
     <string name="not_found_name">Iye!! Bunday ism topilmadiku!?</string>
+    <string name="menu">Menyu</string>
+    <string name="image">image</string>
 </resources>

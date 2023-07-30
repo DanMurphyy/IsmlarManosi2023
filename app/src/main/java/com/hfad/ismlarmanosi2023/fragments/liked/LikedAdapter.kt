@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.hfad.ismlarmanosi2023.BuildConfig
+import com.hfad.ismlarmanosi2023.dataLiked.ImageUtil
 import com.hfad.ismlarmanosi2023.dataLiked.LikedData
 import com.hfad.ismlarmanosi2023.dataLiked.LikedViewModel
 import com.hfad.ismlarmanosi2023.databinding.RowLayoutLikedBinding
@@ -43,6 +44,15 @@ class LikedAdapter : RecyclerView.Adapter<LikedAdapter.MyViewHolder>() {
         binding.lGender.text = currentItem.gender
         binding.lMeaning.text = currentItem.meaning
         binding.lOrigin.text = currentItem.origin
+
+        val imageIndex = currentItem.imageIndex
+
+        if (currentItem.gender == "Erkak ismi") {
+            binding.photoL.setImageResource(ImageUtil.boyImages[imageIndex])
+        } else {
+            binding.photoL.setImageResource(ImageUtil.girlImage[imageIndex])
+        }
+
 
         val itemToDelete = dataList[position] // Retrieve the LikedData object to delete
         val viewModel =

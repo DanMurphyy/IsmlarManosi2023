@@ -1,112 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lo_drawer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.names.NamesFragment">
 
-    <LinearLayout
-        android:id="@+id/lo_search"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/custom_input"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <SearchView
-            android:id="@+id/search"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:iconifiedByDefault="false"
-            android:paddingStart="30dp"
-            android:paddingEnd="30dp"
-            android:queryHint="@string/search_hint" />
-
-    </LinearLayout>
-
-    <ScrollView
-        android:id="@+id/lo_names"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lo_search">
+        android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/lo_search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/custom_input"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <SearchView
+                android:id="@+id/search"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:iconifiedByDefault="false"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                android:background="@android:color/transparent"
+                android:queryBackground="@android:color/transparent"
+                android:queryHint="@string/search_hint" />
+
+
+        </LinearLayout>
+
+        <ScrollView
+            android:id="@+id/lo_names"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lo_search">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/nameList_LW"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/lightGray"
+                    android:gravity="center_horizontal"
+                    android:shadowColor="@color/blue_moss_green"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="1"
+                    android:text="@string/names_lw"
+                    android:textColor="@color/background" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+        <LinearLayout
+            android:id="@+id/no_names_lo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginTop="30dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            app:layout_constraintTop_toBottomOf="@id/lo_search">
 
             <TextView
-                android:id="@+id/nameList_LW"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:background="@color/lightGray"
-                android:gravity="center_horizontal"
-                android:shadowColor="@color/blue_moss_green"
-                android:shadowDx="1"
-                android:shadowDy="1"
-                android:shadowRadius="1"
-                android:text="@string/names_lw"
-                android:textColor="@color/background" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="-20dp"
+                android:rotation="10"
+                android:rotationX="10"
+                android:shadowColor="@color/background"
+                android:shadowDx="10"
+                android:shadowDy="10"
+                android:shadowRadius="3"
+                android:text="@string/not_found_name"
+                android:textColor="@color/text_color"
+                android:textStyle="bold"
+                android:translationY="30dp" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerview_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/kids" />
 
         </LinearLayout>
 
 
-    </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <LinearLayout
-        android:id="@+id/no_names_lo"
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/drawer_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:visibility="invisible"
-        app:layout_constraintTop_toBottomOf="@id/lo_search">
+        android:layout_height="match_parent"
+        android:layout_gravity="start">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="-20dp"
-            android:rotation="10"
-            android:rotationX="10"
-            android:shadowColor="@color/background"
-            android:shadowDx="10"
-            android:shadowDy="10"
-            android:shadowRadius="3"
-            android:text="@string/not_found_name"
-            android:textColor="@color/text_color"
-            android:textStyle="bold"
-            android:translationY="30dp" />
+        <fragment
+            android:id="@+id/fragment_menu"
+            android:name="com.hfad.ismlarmanosi2023.fragments.MenuFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></fragment>
 
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/kids" />
+    </com.google.android.material.navigation.NavigationView>
 
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

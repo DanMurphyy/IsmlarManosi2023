@@ -13,7 +13,7 @@
         <action
             android:id="@+id/action_namesFragment_to_likedFragment"
             app:destination="@id/likedFragment"
-            app:enterAnim="@anim/from_left"
+            app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"

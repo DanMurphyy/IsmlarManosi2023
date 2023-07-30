@@ -18,6 +18,8 @@ import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
 import com.hfad.ismlarmanosi2023.BuildConfig
 import com.hfad.ismlarmanosi2023.R
+import com.hfad.ismlarmanosi2023.dataLiked.ImageUtil.boyImages
+import com.hfad.ismlarmanosi2023.dataLiked.ImageUtil.girlImage
 import com.hfad.ismlarmanosi2023.dataLiked.LikedData
 import com.hfad.ismlarmanosi2023.dataLiked.LikedViewModel
 import com.hfad.ismlarmanosi2023.databinding.FragmentMeaningBinding
@@ -31,6 +33,8 @@ class MeaningFragment : Fragment() {
 
     private val args by navArgs<MeaningFragmentArgs>()
     private val mLikedViewModel: LikedViewModel by viewModels()
+
+    private var ImageIndex = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,42 +61,20 @@ class MeaningFragment : Fragment() {
         binding.meaningMeaning.text = args.currentItem.meaning
         binding.meaningOrigin.text = args.currentItem.origin
 
-        val boyImages = arrayOf(
-            R.drawable.boy1,
-            R.drawable.boy2,
-            R.drawable.boy3,
-            R.drawable.boy4,
-            R.drawable.boy5,
-            R.drawable.boy6,
-            R.drawable.boy7,
-            R.drawable.boy8,
-            R.drawable.boy9,
-            R.drawable.boy10,
-        )
-        val girlImage = arrayOf(
-            R.drawable.girl1,
-            R.drawable.girl2,
-            R.drawable.girl3,
-            R.drawable.girl4,
-            R.drawable.girl5,
-            R.drawable.girl6,
-            R.drawable.girl7,
-            R.drawable.girl8,
-            R.drawable.girl9,
-            R.drawable.girl10,
-        )
 
         when (args.currentItem.gender) {
             "Erkak ismi" -> {
                 val randomBoyImage = boyImages.random()
-                binding.photoM.setImageResource(randomBoyImage)
+                ImageIndex = boyImages.indexOf(randomBoyImage)
+                binding.photoM.setImageResource(boyImages[ImageIndex])
             }
-
             else -> {
                 val randomGirlImage = girlImage.random()
-                binding.photoM.setImageResource(randomGirlImage)
+                ImageIndex = girlImage.indexOf(randomGirlImage)
+                binding.photoM.setImageResource(girlImage[ImageIndex])
             }
         }
+
     }
 
 
@@ -102,15 +84,14 @@ class MeaningFragment : Fragment() {
         val mGender = args.currentItem.gender
         val mMeaning = args.currentItem.meaning
         val mOrigin = args.currentItem.origin
+        val mImageInt = ImageIndex
 
-        val newData = LikedData(mId, mName, mGender, mMeaning, mOrigin)
+        val newData = LikedData(mId, mName, mGender, mMeaning, mOrigin, mImageInt)
         mLikedViewModel.insertData(newData)
         showSnackBar()
-
-
     }
 
-    private fun showSnackBar(){
+    private fun showSnackBar() {
         val snackBar = Snackbar.make(
             requireView(), getString(R.string.succesfullyAdded), Snackbar.LENGTH_SHORT
         )

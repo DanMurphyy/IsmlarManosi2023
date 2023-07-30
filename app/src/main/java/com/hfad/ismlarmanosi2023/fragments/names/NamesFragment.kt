@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.hfad.ismlarmanosi2023.MainActivity
 import com.hfad.ismlarmanosi2023.R
 import com.hfad.ismlarmanosi2023.data.NamesViewModel
 import com.hfad.ismlarmanosi2023.databinding.FragmentNamesBinding
@@ -125,6 +126,18 @@ class NamesFragment : Fragment() {
             binding.loNames.visibility = View.VISIBLE
             binding.noNamesLo.visibility = View.INVISIBLE
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Retrieve the MainActivity instance to access the toolbar and drawer
+        val mainActivity = activity as? MainActivity
+        mainActivity?.setupToolbarAndNavigation()
     }
 
 }
