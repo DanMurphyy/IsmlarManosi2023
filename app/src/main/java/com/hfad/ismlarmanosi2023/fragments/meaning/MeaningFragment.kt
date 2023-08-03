@@ -63,7 +63,7 @@ class MeaningFragment : Fragment() {
 
 
         when (args.currentItem.gender) {
-            "Erkak ismi" -> {
+            "O'g'il bolalar ismi" -> {
                 val randomBoyImage = boyImages.random()
                 ImageIndex = boyImages.indexOf(randomBoyImage)
                 binding.photoM.setImageResource(boyImages[ImageIndex])

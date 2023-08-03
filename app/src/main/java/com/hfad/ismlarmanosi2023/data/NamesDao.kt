@@ -6,9 +6,9 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NamesDao {
-    @Query("SELECT * FROM names ORDER BY name ASC")
+    @Query("SELECT * FROM all_names ORDER BY name ASC")
     fun getAllData(): Flow<List<NamesData>>
 
-    @Query("SELECT * FROM names WHERE name LIKE:searchQuery")
+    @Query("SELECT * FROM all_names WHERE name LIKE:searchQuery")
     fun searchName(searchQuery: String): Flow<List<NamesData>>
 }

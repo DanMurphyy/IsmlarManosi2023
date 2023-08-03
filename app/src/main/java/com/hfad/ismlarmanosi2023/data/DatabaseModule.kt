@@ -20,8 +20,8 @@ object DatabaseModule {
     ) = Room.databaseBuilder(
         context,
         NamesDatabase::class.java,
-        "names"
-    ).createFromAsset("databases/names.db").build()
+        "all_names"
+    ).createFromAsset("databases/all_names.db").build()
 
     @Singleton
     @Provides

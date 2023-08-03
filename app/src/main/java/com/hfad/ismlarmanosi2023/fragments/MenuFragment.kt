@@ -12,8 +12,9 @@ import androidx.navigation.fragment.findNavController
 import com.hfad.ismlarmanosi2023.R
 import com.hfad.ismlarmanosi2023.databinding.FragmentMenuBinding
 import com.hfad.ismlarmanosi2023.language.MyPreference
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MenuFragment : Fragment() {
     private var _binding: FragmentMenuBinding? = null
     private val binding get() = _binding!!
