@@ -2,6 +2,7 @@ package com.hfad.ismlarmanosi2023.data
 
 import android.content.Context
 import androidx.room.Room
+import com.hfad.ismlarmanosi2023.language.MyPreference
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,13 +18,25 @@ object DatabaseModule {
     @Provides
     fun provideDatabase(
         @ApplicationContext context: Context,
-    ) = Room.databaseBuilder(
-        context,
-        NamesDatabase::class.java,
-        "all_names"
-    ).createFromAsset("databases/all_names.db").build()
+        myPreference: MyPreference,
+    ): NamesDatabase {
+        val lang = myPreference.getLoginCount()
+        val databaseFileName = if (lang == "en") "all_names.db" else "all_names_uz.db"
+
+        return Room.databaseBuilder(
+            context,
+            NamesDatabase::class.java,
+            databaseFileName
+        ).createFromAsset("databases/$databaseFileName").build()
+    }
 
     @Singleton
     @Provides
     fun provideDao(database: NamesDatabase) = database.namesDao()
+
+    @Singleton
+    @Provides
+    fun provideContext(@ApplicationContext context: Context): Context {
+        return context
+    }
 }

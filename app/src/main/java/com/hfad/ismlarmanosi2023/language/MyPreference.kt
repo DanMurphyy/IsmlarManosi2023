@@ -2,13 +2,14 @@ package com.hfad.ismlarmanosi2023.language
 
 import android.content.Context
 import android.content.SharedPreferences
+import javax.inject.Inject
 import javax.inject.Singleton
 
 val PREFERENCE_NAME = "SharedPreferenceExample"
 val PREFERENCE_LANGUAGE = "Language"
 
 @Singleton
-class MyPreference(context: Context) {
+class MyPreference @Inject constructor( val context: Context) {
     val preference: SharedPreferences =
         context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
 
