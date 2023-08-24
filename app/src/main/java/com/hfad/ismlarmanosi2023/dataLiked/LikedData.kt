@@ -8,9 +8,5 @@ import androidx.room.PrimaryKey
 data class LikedData(
     @PrimaryKey(autoGenerate = true)
     var id: Int,
-    var name: String,
-    var gender: String,
-    var meaning: String,
-    var origin: String,
     var imageIndex: Int,
 )

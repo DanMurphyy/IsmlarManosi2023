@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 
-@Database(entities = [LikedData::class], version = 1, exportSchema = false)
+@Database(entities = [LikedData::class], version = 2, exportSchema = false)
 abstract class LikedDatabase : RoomDatabase() {
 
     abstract fun likedDao(): LikedDao
@@ -25,7 +25,9 @@ abstract class LikedDatabase : RoomDatabase() {
                     context.applicationContext,
                     LikedDatabase::class.java,
                     "liked_database"
-                ).build()
+                )
+                    .fallbackToDestructiveMigration() // Use destructive migration as a fallback
+                    .build()
 
                 INSTANCE = instance
                 return instance

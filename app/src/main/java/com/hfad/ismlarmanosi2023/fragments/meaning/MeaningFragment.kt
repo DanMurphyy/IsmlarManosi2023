@@ -80,13 +80,13 @@ class MeaningFragment : Fragment() {
 
     private fun insertDataToDB() {
         val mId = args.currentItem.id
-        val mName = args.currentItem.name
-        val mGender = args.currentItem.gender
-        val mMeaning = args.currentItem.meaning
-        val mOrigin = args.currentItem.origin
+//        val mName = args.currentItem.name
+//        val mGender = args.currentItem.gender
+//        val mMeaning = args.currentItem.meaning
+//        val mOrigin = args.currentItem.origin
         val mImageInt = ImageIndex
 
-        val newData = LikedData(mId, mName, mGender, mMeaning, mOrigin, mImageInt)
+        val newData = LikedData(mId, mImageInt)
         mLikedViewModel.insertData(newData)
         showSnackBar()
     }
@@ -121,9 +121,11 @@ class MeaningFragment : Fragment() {
         val rootView = binding.root
 
         // Create a bitmap with the dimensions of the RecyclerView
-        val bitmap = Bitmap.createBitmap(binding.loCardView.width,
+        val bitmap = Bitmap.createBitmap(
+            binding.loCardView.width,
             binding.loCardView.height,
-            Bitmap.Config.ARGB_8888)
+            Bitmap.Config.ARGB_8888
+        )
         // Create a canvas using the bitmap
         val canvas = Canvas(bitmap)
         // Draw the background of the root view onto the canvas
@@ -150,10 +152,14 @@ class MeaningFragment : Fragment() {
         // Create a share intent for the temporary file and the caption
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.type = "image/jpeg"
-        shareIntent.putExtra(Intent.EXTRA_STREAM,
-            FileProvider.getUriForFile(requireContext(),
+        shareIntent.putExtra(
+            Intent.EXTRA_STREAM,
+            FileProvider.getUriForFile(
+                requireContext(),
                 BuildConfig.APPLICATION_ID + ".provider",
-                file))
+                file
+            )
+        )
         shareIntent.putExtra(Intent.EXTRA_TEXT, caption)
         shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 

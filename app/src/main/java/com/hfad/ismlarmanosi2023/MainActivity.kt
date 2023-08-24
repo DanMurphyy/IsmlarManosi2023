@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         super.attachBaseContext(MyContextWrapper.wrap(newbase, lang!!))
     }
 
-
     fun setupToolbarAndNavigation() {
 
         val toolbar: MaterialToolbar = binding.toolbar

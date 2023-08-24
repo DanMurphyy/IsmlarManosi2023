@@ -1,5 +1,6 @@
 package com.hfad.ismlarmanosi2023.fragments.liked
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,21 +8,29 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.hfad.ismlarmanosi2023.data.NamesViewModel
 import com.hfad.ismlarmanosi2023.dataLiked.LikedData
 import com.hfad.ismlarmanosi2023.dataLiked.LikedViewModel
 import com.hfad.ismlarmanosi2023.databinding.FragmentLikedBinding
+import dagger.hilt.android.AndroidEntryPoint
 import jp.wasabeef.recyclerview.animators.ScaleInAnimator
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class LikedFragment : Fragment() {
     private var _binding: FragmentLikedBinding? = null
     private val binding get() = _binding!!
 
     private val adapter: LikedAdapter by lazy { LikedAdapter() }
     private val mLikedViewModel: LikedViewModel by viewModels()
+    private val nNamesViewModel: NamesViewModel by viewModels()
+
 
     private val emptyDatabase: MutableLiveData<Boolean> = MutableLiveData(true)
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -33,6 +42,15 @@ class LikedFragment : Fragment() {
             adapter.setData(data)
 
         }
+
+
+        lifecycleScope.launch {
+            nNamesViewModel.getAllData.collect { data ->
+                adapter.setNamesData(data)
+            }
+        }
+
+
 
         emptyDatabase.observe(viewLifecycleOwner) {
             showEmptyDatabaseView(it)

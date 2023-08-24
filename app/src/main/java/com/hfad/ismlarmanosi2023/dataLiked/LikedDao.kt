@@ -6,7 +6,7 @@ import androidx.room.*
 @Dao
 interface LikedDao {
 
-    @Query("SELECT * FROM likedList ORDER by name ASC")
+    @Query("SELECT * FROM likedList ORDER by id ASC")
     fun getAllData(): LiveData<List<LikedData>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

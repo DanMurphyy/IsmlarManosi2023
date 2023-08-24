@@ -21,14 +21,7 @@ class LikedDiffUtil(
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         return oldList[oldItemPosition].id == newList[newItemPosition].id
-                &&
-                oldList[oldItemPosition].name == newList[newItemPosition].name
-                &&
-                oldList[oldItemPosition].gender == newList[newItemPosition].gender
-                &&
-                oldList[oldItemPosition].meaning == newList[newItemPosition].meaning
-                &&
-                oldList[oldItemPosition].origin == newList[newItemPosition].origin
+
     }
 
 }
