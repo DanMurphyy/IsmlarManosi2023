@@ -62,17 +62,16 @@ class MeaningFragment : Fragment() {
         binding.meaningOrigin.text = args.currentItem.origin
 
 
-        when (args.currentItem.gender) {
-            "O'g'il bolalar ismi" -> {
-                val randomBoyImage = boyImages.random()
-                ImageIndex = boyImages.indexOf(randomBoyImage)
-                binding.photoM.setImageResource(boyImages[ImageIndex])
-            }
-            else -> {
-                val randomGirlImage = girlImage.random()
-                ImageIndex = girlImage.indexOf(randomGirlImage)
-                binding.photoM.setImageResource(girlImage[ImageIndex])
-            }
+        if (args.currentItem.gender == "O'g'il bolalar ismi" || args.currentItem.gender == "O'gil bolalar ismi"
+            || args.currentItem.gender == "Ўғил болалар исми" || args.currentItem.gender == "Ўгил болалар исми"
+        ) {
+            val randomBoyImage = boyImages.random()
+            ImageIndex = boyImages.indexOf(randomBoyImage)
+            binding.photoM.setImageResource(boyImages[ImageIndex])
+        } else {
+            val randomGirlImage = girlImage.random()
+            ImageIndex = girlImage.indexOf(randomGirlImage)
+            binding.photoM.setImageResource(girlImage[ImageIndex])
         }
 
     }
@@ -80,10 +79,6 @@ class MeaningFragment : Fragment() {
 
     private fun insertDataToDB() {
         val mId = args.currentItem.id
-//        val mName = args.currentItem.name
-//        val mGender = args.currentItem.gender
-//        val mMeaning = args.currentItem.meaning
-//        val mOrigin = args.currentItem.origin
         val mImageInt = ImageIndex
 
         val newData = LikedData(mId, mImageInt)

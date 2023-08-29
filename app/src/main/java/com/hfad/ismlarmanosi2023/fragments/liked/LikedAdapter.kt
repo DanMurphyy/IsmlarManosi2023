@@ -57,7 +57,7 @@ class LikedAdapter : RecyclerView.Adapter<LikedAdapter.MyViewHolder>() {
 
                 val imageIndex = currentItem.imageIndex
 
-                if (i.gender == "O'g'il bolalar ismi" || i.gender == "O'gil bolalar ismi") {
+                if (i.gender == "O'g'il bolalar ismi" || i.gender == "O'gil bolalar ismi" || i.gender == "Ўғил болалар исми" || i.gender == "Ўгил болалар исми") {
                     binding.photoL.setImageResource(ImageUtil.boyImages[imageIndex])
                 } else {
                     binding.photoL.setImageResource(ImageUtil.girlImage[imageIndex])

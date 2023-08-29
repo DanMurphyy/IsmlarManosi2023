@@ -4,15 +4,19 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.hfad.ismlarmanosi2023.MyApp
 import com.hfad.ismlarmanosi2023.R
+import com.hfad.ismlarmanosi2023.SplashActivity
 import com.hfad.ismlarmanosi2023.databinding.FragmentMenuBinding
 import com.hfad.ismlarmanosi2023.language.MyPreference
 import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.internal.lifecycle.HiltViewModelMap
 
 @AndroidEntryPoint
 class MenuFragment : Fragment() {
@@ -65,10 +69,23 @@ class MenuFragment : Fragment() {
             }
             // Save the selected language in SharedPreferences
             myPreference.setLoginCount(lang!!)
-            activity?.recreate()
+            restartApp()
         }
 
         return (binding.root)
+    }
+
+    private fun restartApp() {
+        Log.d("AppLogging", "Restarting app")
+
+        val intent = requireActivity().packageManager.getLaunchIntentForPackage(requireActivity().packageName)
+        intent?.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(intent)
+        requireActivity().finish()
+        val intentMy = MyApp().packageManager.getLaunchIntentForPackage(MyApp().packageName)
+        intentMy?.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(intentMy)
+        requireActivity().finish()
     }
 
     private fun openTelegramChat() {
@@ -85,7 +102,8 @@ class MenuFragment : Fragment() {
     private fun otherApps() {
         val intent = Intent(Intent.ACTION_VIEW).apply {
             data = Uri.parse(
-                "https://play.google.com/store/apps/developer?id=AppLab+INC")
+                "https://play.google.com/store/apps/developer?id=AppLab+INC"
+            )
             setPackage("com.android.vending")
         }
         startActivity(intent)
