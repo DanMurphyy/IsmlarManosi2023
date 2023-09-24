@@ -12,6 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.gms.ads.MobileAds
 import com.google.android.material.appbar.MaterialToolbar
 import com.hfad.ismlarmanosi2023.databinding.ActivityMainBinding
 import com.hfad.ismlarmanosi2023.language.MyContextWrapper
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         Log.d("AppLogging", "App started")
-
+        MobileAds.initialize(this) {}
 
         setupToolbarAndNavigation()
     }

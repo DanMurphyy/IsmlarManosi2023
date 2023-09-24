@@ -15,6 +15,7 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.google.android.gms.ads.AdRequest
 import com.google.android.material.snackbar.Snackbar
 import com.hfad.ismlarmanosi2023.BuildConfig
 import com.hfad.ismlarmanosi2023.R
@@ -42,6 +43,8 @@ class MeaningFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentMeaningBinding.inflate(inflater, container, false)
+        val adRequest = AdRequest.Builder().build()
+        binding.adView2.loadAd(adRequest)
 
         showInfo()
         binding.shareM.setOnClickListener {

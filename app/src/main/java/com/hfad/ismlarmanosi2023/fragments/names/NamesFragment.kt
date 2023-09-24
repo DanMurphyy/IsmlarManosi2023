@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
 import com.hfad.ismlarmanosi2023.MainActivity
 import com.hfad.ismlarmanosi2023.R
 import com.hfad.ismlarmanosi2023.data.NamesViewModel
@@ -40,6 +41,8 @@ class NamesFragment : Fragment() {
             }
             false
         }
+        val adRequest = AdRequest.Builder().build()
+        binding.adView1.loadAd(adRequest)
 
         showRecyclerView()
         searchList()

@@ -21,4 +21,5 @@
     <string name="liked_list_text">Бу йер сизнинг \'Ёқтирган\' исмларингиз рўйхати учун жой. \'Ёқтиришни\' ўзингизни яқинларингиз исмидан бошланг!</string>
     <string name="not_found_name">Ийе!! Бундай исм топилмадику!? </string>
     <string name="menu">Меню</string>
+    <string name="image">image</string>
 </resources>

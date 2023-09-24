@@ -10,6 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.gms.ads.AdRequest
 import com.hfad.ismlarmanosi2023.data.NamesViewModel
 import com.hfad.ismlarmanosi2023.dataLiked.LikedData
 import com.hfad.ismlarmanosi2023.dataLiked.LikedViewModel
@@ -37,6 +38,8 @@ class LikedFragment : Fragment() {
     ): View {
         _binding = FragmentLikedBinding.inflate(inflater, container, false)
         recyclerViewLiked()
+        val adRequest = AdRequest.Builder().build()
+        binding.adView3.loadAd(adRequest)
         mLikedViewModel.getAllData.observe(viewLifecycleOwner) { data ->
             checkIfDatabaseEmpty(data)
             adapter.setData(data)

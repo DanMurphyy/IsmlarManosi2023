@@ -31,10 +31,10 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@android:color/transparent"
                 android:iconifiedByDefault="false"
                 android:paddingStart="30dp"
                 android:paddingEnd="30dp"
-                android:background="@android:color/transparent"
                 android:queryBackground="@android:color/transparent"
                 android:queryHint="@string/search_hint" />
 
@@ -47,7 +47,7 @@
             android:layout_height="0dp"
             android:orientation="vertical"
             android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/adView1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -116,6 +116,22 @@
                 android:src="@drawable/kids" />
 
         </LinearLayout>
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:adSize="BANNER"
+            app:adUnitId="ca-app-pub-8558811277281829/7356706337"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lo_names"
+            tools:layout_editor_absoluteY="24dp">
+
+        </com.google.android.gms.ads.AdView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

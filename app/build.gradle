@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -87,7 +88,10 @@ dependencies {
     implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
     implementation 'com.google.android.gms:play-services-ads-base:22.2.0'
     implementation platform('com.google.firebase:firebase-bom:32.2.0')
-    implementation platform('com.google.firebase:firebase-bom:32.2.0')
+    implementation platform('com.google.firebase:firebase-bom:32.3.1')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.android.gms:play-services-ads:22.2.0'
+    implementation "com.google.android.gms:play-services-games-v2:+"
 
     implementation "com.google.dagger:hilt-android:2.45"
     kapt "com.google.dagger:hilt-android-compiler:2.45"
@@ -95,6 +99,5 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
     implementation 'com.jakewharton:process-phoenix:2.1.1'
-
 }
 

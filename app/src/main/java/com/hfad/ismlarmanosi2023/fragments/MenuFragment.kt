@@ -10,7 +10,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.hfad.ismlarmanosi2023.MainActivity
 import com.hfad.ismlarmanosi2023.R
 import com.hfad.ismlarmanosi2023.databinding.FragmentMenuBinding
 import com.hfad.ismlarmanosi2023.language.MyPreference
