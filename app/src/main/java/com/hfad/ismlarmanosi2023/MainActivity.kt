@@ -72,4 +72,9 @@ class MainActivity : AppCompatActivity() {
         return super.dispatchTouchEvent(ev)
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("AppLogging", "MainActivity is being destroyed")
+    }
+
 }
