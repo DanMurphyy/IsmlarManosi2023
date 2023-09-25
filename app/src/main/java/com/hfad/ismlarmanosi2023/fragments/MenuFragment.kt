@@ -41,7 +41,7 @@ class MenuFragment : Fragment() {
             openTelegramChat()
         }
         binding.llRate.setOnClickListener {
-            otherApps()
+            rateTheApp()
         }
 
         binding.llOthers.setOnClickListener {
@@ -96,6 +96,16 @@ class MenuFragment : Fragment() {
         val intent = Intent(Intent.ACTION_VIEW).apply {
             data = Uri.parse(
                 "https://play.google.com/store/apps/developer?id=AppLab+INC"
+            )
+            setPackage("com.android.vending")
+        }
+        startActivity(intent)
+    }
+
+    private fun rateTheApp() {
+        val intent = Intent(Intent.ACTION_VIEW).apply {
+            data = Uri.parse(
+                "https://play.google.com/store/apps/details?id=com.hfad.ismlarmanosi2023"
             )
             setPackage("com.android.vending")
         }
