@@ -10,7 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.google.android.gms.ads.AdRequest
+import com.hfad.ismlarmanosi2023.R
 import com.hfad.ismlarmanosi2023.data.NamesViewModel
 import com.hfad.ismlarmanosi2023.dataLiked.LikedData
 import com.hfad.ismlarmanosi2023.dataLiked.LikedViewModel
@@ -28,7 +30,6 @@ class LikedFragment : Fragment() {
     private val mLikedViewModel: LikedViewModel by viewModels()
     private val nNamesViewModel: NamesViewModel by viewModels()
 
-
     private val emptyDatabase: MutableLiveData<Boolean> = MutableLiveData(true)
 
     @SuppressLint("ClickableViewAccessibility")
@@ -37,6 +38,14 @@ class LikedFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentLikedBinding.inflate(inflater, container, false)
+
+        Glide.with(this)
+            .load(R.drawable.family) // Assuming family is the name of your image resource
+            .into(binding.familyIv)
+        Glide.with(this)
+            .load(R.drawable.ic_liked) // Assuming family is the name of your image resource
+            .into(binding.icLikedIv)
+
         recyclerViewLiked()
         val adRequest = AdRequest.Builder().build()
         binding.adView3.loadAd(adRequest)

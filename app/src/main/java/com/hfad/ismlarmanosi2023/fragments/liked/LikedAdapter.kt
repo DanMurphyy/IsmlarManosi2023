@@ -14,7 +14,10 @@ import androidx.core.content.FileProvider
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.hfad.ismlarmanosi2023.BuildConfig
+import com.hfad.ismlarmanosi2023.R
 import com.hfad.ismlarmanosi2023.data.NamesData
 import com.hfad.ismlarmanosi2023.dataLiked.ImageUtil
 import com.hfad.ismlarmanosi2023.dataLiked.LikedData
@@ -57,13 +60,31 @@ class LikedAdapter : RecyclerView.Adapter<LikedAdapter.MyViewHolder>() {
 
                 val imageIndex = currentItem.imageIndex
 
-                if (i.gender == "O'g'il bolalar ismi" || i.gender == "O'gil bolalar ismi" || i.gender == "Ўғил болалар исми" || i.gender == "Ўгил болалар исми") {
-                    binding.photoL.setImageResource(ImageUtil.boyImages[imageIndex])
+                val imageResId = if (i.gender == "O'g'il bolalar ismi" || i.gender == "O'gil bolalar ismi" || i.gender == "Ўғил болалар исми" || i.gender == "Ўгил болалар исми") {
+                    ImageUtil.boyImages[imageIndex]
                 } else {
-                    binding.photoL.setImageResource(ImageUtil.girlImage[imageIndex])
+                    ImageUtil.girlImage[imageIndex]
                 }
+
+                Glide.with(holder.itemView.context)
+                    .load(imageResId)
+                    .fitCenter()
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .into(binding.photoL)
             }
         }
+
+        Glide.with(holder.itemView.context)
+            .load(R.drawable.ic_liked)
+            .fitCenter()
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .into(binding.likeL)
+
+        Glide.with(holder.itemView.context)
+            .load(R.drawable.sharing_m)
+            .fitCenter()
+            .transition(DrawableTransitionOptions.withCrossFade())
+            .into(binding.shareL)
 
 
         val itemToDelete = dataList[position] // Retrieve the LikedData object to delete

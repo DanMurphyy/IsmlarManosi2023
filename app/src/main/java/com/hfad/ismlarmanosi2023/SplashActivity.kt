@@ -14,6 +14,12 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
         // Optionally, add a delay for the splash screen
         gif2()
+
+        val imageSplash: ImageView = findViewById(R.id.imageSplash)
+        Glide.with(this)
+            .load(R.drawable.app_photo)
+            .into(imageSplash)
+
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent(this, MainActivity::class.java))
             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)

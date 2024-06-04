@@ -15,6 +15,8 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.google.android.gms.ads.AdRequest
 import com.google.android.material.snackbar.Snackbar
 import com.hfad.ismlarmanosi2023.BuildConfig
@@ -65,16 +67,21 @@ class MeaningFragment : Fragment() {
         binding.meaningOrigin.text = args.currentItem.origin
 
 
+        // Inside showInfo() function
         if (args.currentItem.gender == "O'g'il bolalar ismi" || args.currentItem.gender == "O'gil bolalar ismi"
             || args.currentItem.gender == "Ўғил болалар исми" || args.currentItem.gender == "Ўгил болалар исми"
         ) {
             val randomBoyImage = boyImages.random()
             ImageIndex = boyImages.indexOf(randomBoyImage)
-            binding.photoM.setImageResource(boyImages[ImageIndex])
+            Glide.with(this)
+                .load(randomBoyImage)
+                .into(binding.photoM)
         } else {
             val randomGirlImage = girlImage.random()
             ImageIndex = girlImage.indexOf(randomGirlImage)
-            binding.photoM.setImageResource(girlImage[ImageIndex])
+            Glide.with(this)
+                .load(randomGirlImage)
+                .into(binding.photoM)
         }
 
     }

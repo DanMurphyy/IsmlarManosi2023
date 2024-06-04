@@ -31,10 +31,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/family_iv"
             android:layout_width="200dp"
             android:layout_height="200dp"
+            android:backgroundTint="@color/white"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/family" />
+            tools:src="@drawable/family" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -46,10 +48,11 @@
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/ic_liked_iv"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/ic_liked" />
+            tools:src="@drawable/ic_liked" />
 
     </LinearLayout>
 
