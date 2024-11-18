@@ -60,6 +60,8 @@ dependencies {
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:2.8.3"
     implementation 'androidx.navigation:navigation-ui-ktx:2.8.3'
+    implementation 'com.google.firebase:firebase-firestore:25.1.1'
+    implementation 'com.google.firebase:firebase-auth:23.1.0'
 
     kapt "androidx.room:room-compiler:2.6.1"
 
