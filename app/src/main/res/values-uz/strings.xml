@@ -1,29 +1,29 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Исмлар Маъноси 2025</string>
-    <string name="hello_blank_fragment">Салом бўш фрагмент</string>
-    <string name="liked">Ёқтирилганлар</string>
-    <string name="names_title">Исмлар Маъноси</string>
-    <string name="liked_title">Ёқтирилганлар</string>
-    <string name="search">Қидирув</string>
-    <string name="could_not_find">Исмингиз топилмадими?</string>
-    <string name="rate_the_app">Дастурни баҳоланг</string>
-    <string name="share_the_app">Дастурни улашинг</string>
-    <string name="our_other_apps">Бошқа иловалар</string>
-    <string name="change_language_style">Илова ёзувини ўзгартирин</string>
+    <string name="app_name">Ismlar Ma\'nosi 2025</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="liked">Yoqtirilganlar</string>
+    <string name="names_title">Ismlar Ma\'nosi 2025</string>
+    <string name="liked_title">Yoqtirilganlar</string>
+    <string name="search">Qidiruv</string>
+    <string name="could_not_find">Ismingiz topilmadimi?</string>
+    <string name="rate_the_app">Dasturni baholang</string>
+    <string name="share_the_app">Dasturni ulashing</string>
+    <string name="our_other_apps">Boshqa ilovalar</string>
+    <string name="change_language_style">Ilova yozuvini o\'zgartirin</string>
     <string name="lotincha">LOTINCHA</string>
     <string name="kirilcha">КИРИЛЧА</string>
-    <string name="icon">иконка</string>
-    <string name="search_hint">Исм киритинг . . .</string>
-    <string name="names_lw">Исмлар</string>
-    <string name="dilshodbek">Дилшодбек</string>
-    <string name="succesfullyAdded">Муваффақиятли қўшилди!</string>
-    <string name="liked_list_text">Бу йер сизнинг \'Ёқтирган\' исмларингиз рўйхати учун жой. \'Ёқтиришни\' ўзингизни яқинларингиз исмидан бошланг!</string>
-    <string name="not_found_name">Ийе!! Бундай исм топилмадику!? </string>
-    <string name="menu">Меню</string>
+    <string name="english">ENGLISH</string>
+    <string name="icon">icon</string>
+    <string name="search_hint">Ism kiriting . . .</string>
+    <string name="names_lw">Ismlar</string>
+    <string name="dilshodbek">Dilshodbek</string>
+    <string name="succesfullyAdded">Muvaffaqiyatli qo\'shildi!</string>
+    <string name="liked_list_text">Bu yer siznining \'Yoqtirgan\' ismlaringiz royxati uchun joy. \'Yoqtirishni\' o\'zingizni yaqinlaringiz ismidan boshlang!</string>
+    <string name="not_found_name">Iye!! Bunday ism topilmadiku!?</string>
+    <string name="menu">Menyu</string>
     <string name="image">image</string>
-    <string name="update_available">Янгиланиш мавжуд</string>
-    <string name="update_now">Ҳозир янгиланг</string>
-    <string name="a_new_version_is_available">Янги версия бепул тақдим этилади. \nЯнги функциялардан фойдаланиш учун янгиланинг.</string>
+    <string name="update_available">Yangilanish mavjud</string>
+    <string name="update_now">Hozir yangilang</string>
+    <string name="a_new_version_is_available">Yangi versiya bepul taqdim etiladi. \nYangi funksiyalardan foydalanish uchun yangilang.</string>
 
 </resources>

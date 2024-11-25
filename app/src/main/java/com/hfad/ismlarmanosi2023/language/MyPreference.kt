@@ -14,7 +14,7 @@ class MyPreference @Inject constructor( val context: Context) {
         context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
 
     fun getLoginCount(): String? {
-        return preference.getString(PREFERENCE_LANGUAGE, "en")
+        return preference.getString(PREFERENCE_LANGUAGE, "uz")
     }
 
     fun setLoginCount(Language: String) {

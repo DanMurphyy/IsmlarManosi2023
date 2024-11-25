@@ -206,6 +206,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/kirilcha" />
 
+            <RadioButton
+                android:id="@+id/rb_english"
+                style="@style/Widget.AppCompat.CompoundButton.Switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/english" />
+
         </RadioGroup>
     </LinearLayout>
 

@@ -27,7 +27,8 @@ object DatabaseModule {
         myPreference: MyPreference,
     ): NamesDatabase {
         val lang = myPreference.getLoginCount()
-        val databaseFileName = if (lang == "en") "all_names.db" else "all_names_uzz.db"
+        val databaseFileName =
+            if (lang == "en" || lang == "uz") "all_names.db" else "all_names_uzz.db"
 
         return Room.databaseBuilder(
             context,

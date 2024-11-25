@@ -54,16 +54,18 @@ class MenuFragment : Fragment() {
 
         var lang: String? = myPreference.getLoginCount()
         when (lang) {
-            "en" -> binding.rbLotincha.isChecked = true
-            "uz" -> binding.rbKirilcha.isChecked = true
+            "uz" -> binding.rbLotincha.isChecked = true
+            "ru" -> binding.rbKirilcha.isChecked = true
+            "en" -> binding.rbEnglish.isChecked = true
             else -> binding.rbLotincha.isChecked = true
         }
 
         binding.radioGroup.setOnCheckedChangeListener { _, checkedId ->
             lang = when (checkedId) {
-                R.id.rb_lotincha -> "en"
-                R.id.rb_kirilcha -> "uz"
-                else -> "en"
+                R.id.rb_lotincha -> "uz"
+                R.id.rb_kirilcha -> "ru"
+                R.id.rb_english -> "en"
+                else -> "uz"
             }
             // Save the selected language in SharedPreferences
             myPreference.setLoginCount(lang!!)
