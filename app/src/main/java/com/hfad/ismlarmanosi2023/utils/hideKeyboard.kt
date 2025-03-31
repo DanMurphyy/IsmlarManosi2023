@@ -1,4 +1,4 @@
-package com.hfad.ismlarmanosi2023
+package com.hfad.ismlarmanosi2023.utils
 
 import android.app.Activity
 import android.content.Context

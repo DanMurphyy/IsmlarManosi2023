@@ -3,6 +3,7 @@ package com.hfad.ismlarmanosi2023.data
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.room.Room
+import com.google.android.gms.ads.AdRequest
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.hfad.ismlarmanosi2023.language.MyPreference
@@ -72,5 +73,11 @@ object DatabaseModule {
         firebaseDatabase: FirebaseFirestore,
     ): RemoteConfigRepository {
         return RemoteConfigRepositoryImpl(firebaseDatabase)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAdRequest(): AdRequest {
+        return AdRequest.Builder().build()
     }
 }

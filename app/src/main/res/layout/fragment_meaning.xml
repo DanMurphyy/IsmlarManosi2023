@@ -20,6 +20,14 @@
             android:background="@drawable/meaning_back"
             android:orientation="vertical">
 
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:adSize="BANNER"
+                app:adUnitId="ca-app-pub-8558811277281829/7356706337" />
+
             <TextView
                 android:id="@+id/meaning_name"
                 android:layout_width="match_parent"
@@ -80,8 +88,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:backgroundTint="@color/white"
-                />
+                android:backgroundTint="@color/white" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -118,7 +125,20 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.gms.ads.AdView
-        android:id="@+id/adView2"
+        android:id="@+id/adView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-8558811277281829/7356706337"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lo_cardView"
+        tools:layout_editor_absoluteY="24dp" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -128,9 +148,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lo_cardView"
-        tools:layout_editor_absoluteY="24dp">
-
-    </com.google.android.gms.ads.AdView>
+        app:layout_constraintTop_toBottomOf="@id/adView4"
+        tools:layout_editor_absoluteY="24dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,5 +25,22 @@
     <string name="update_available">Yangilanish mavjud</string>
     <string name="update_now">Hozir yangilang</string>
     <string name="a_new_version_is_available">Yangi versiya bepul taqdim etiladi. \nYangi funksiyalardan foydalanish uchun yangilang.</string>
+    <string name="link_for_app">Ilova uchun havola:\n</string>
+    <string name="share_with_frieds">Do\'stlar bilan ulashing</string>
+    <string name="wise_quotes">Hikmatli so\'zlar</string>
+    <string name="sample_word">Hikmatli so\'zlarning namunasi shu erda bo\'ladi</string>
+    <string name="author_of_the_word">Iqtibos muallifi</string>
+    <string name="ok">Tushunarli</string>
+    <string name="disclaimer">Rad etish</string>
+    <string name="disclaimer_info">
+        \n Iqtiboslar va muallif ismlari faqat ma\'lumot olish uchun mo\'ljallangan.
+        \n Biz har qanday noaniqliklar uchun javobgar emasmiz.
+        \n Shikoyat va takliflar uchun biz bilan bog\'laning:
+        \n danmurphyy2022@gmail.com.
+    </string>
+    <string name="notification_permission_needed">Bildirishnoma ruxsati talab qilinadi</string>
+    <string name="receive_notifications">Kundalik iqtoboslar olish uchun bildirishnomalarga ruxsat bering.</string>
+    <string name="cancel">Bekor qilish</string>
+    <string name="settings">Sozlamalar</string>
 
 </resources>

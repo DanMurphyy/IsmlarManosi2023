@@ -10,11 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.ads.AdRequest
 import com.hfad.ismlarmanosi2023.R
 import com.hfad.ismlarmanosi2023.databinding.FragmentMenuBinding
 import com.hfad.ismlarmanosi2023.language.MyPreference
 import com.jakewharton.processphoenix.ProcessPhoenix
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MenuFragment : Fragment() {
@@ -22,6 +24,9 @@ class MenuFragment : Fragment() {
     private val binding get() = _binding!!
 
     lateinit var myPreference: MyPreference
+
+    @Inject
+    lateinit var adRequest: AdRequest
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +36,8 @@ class MenuFragment : Fragment() {
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
         myPreference = MyPreference(requireContext())
 
+        binding.adView12.loadAd(adRequest)
+        binding.adView13.loadAd(adRequest)
 
         binding.llLikedOnes.setOnClickListener {
             findNavController().navigate(R.id.action_namesFragment_to_likedFragment)

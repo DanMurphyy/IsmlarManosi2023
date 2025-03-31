@@ -147,10 +147,10 @@ class LikedAdapter : RecyclerView.Adapter<LikedAdapter.MyViewHolder>() {
             shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 
             // Get the Activity context from the itemView's context
-            val activityContext = holder.itemView.context as Activity
+            val activityContext = holder.itemView.context as? Activity
 
             // Show the share dialog using the Activity context
-            activityContext.startActivity(
+            activityContext?.startActivity(
                 Intent.createChooser(
                     shareIntent,
                     "Share layout photo with caption"

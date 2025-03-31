@@ -26,5 +26,23 @@
     <string name="update_available">Янгиланиш мавжуд</string>
     <string name="update_now">Ҳозир янгиланг</string>
     <string name="a_new_version_is_available">Янги версия бепул тақдим этилади. \nЯнги функциялардан фойдаланиш учун янгиланинг.</string>
+    <string name="link_for_app">Илова учун хавола:\n</string>
+    <string name="share_with_frieds">Дўстлар билан улашинг</string>
+    <string name="wise_quotes">Ҳикматли сўзлар</string>
+    <string name="sample_word">Ҳикматли сўзларнинг намунаси шу ерда бўлади</string>
+    <string name="author_of_the_word">Иқтибос муаллифи</string>
+    <string name="ok">Тушунарли</string>
+    <string name="disclaimer">Рад этиш</string>
+    <string name="disclaimer_info">
+    \n Иқтибослар ва муаллиф исмлари фақат маълумот олиш учун мўлжалланган.
+    \n Биз ҳар қандай ноаниқликлар учун жавобгар эмасмиз.
+    \n Шикоят ва таклифлар учун биз билан боғланинг:
+    \n danmurphyy2022@gmail.com.
+</string>
+    <string name="notification_permission_needed">Билдиришнома рухсати талаб қилинади</string>
+    <string name="receive_notifications">Кундалик иқтибослар олиш учун билдиришномаларга рухсат беринг.</string>
+    <string name="cancel">Бекор қилиш</string>
+    <string name="settings">Созламалар</string>
+
 
 </resources>

@@ -48,7 +48,9 @@ class LikedFragment : Fragment() {
 
         recyclerViewLiked()
         val adRequest = AdRequest.Builder().build()
-        binding.adView3.loadAd(adRequest)
+        binding.adView6.loadAd(adRequest)
+        binding.adView7.loadAd(adRequest)
+        binding.adView8.loadAd(adRequest)
         mLikedViewModel.getAllData.observe(viewLifecycleOwner) { data ->
             checkIfDatabaseEmpty(data)
             adapter.setData(data)

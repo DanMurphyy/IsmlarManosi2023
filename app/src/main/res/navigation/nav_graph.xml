@@ -9,7 +9,7 @@
         android:id="@+id/namesFragment"
         android:name="com.hfad.ismlarmanosi2023.fragments.names.NamesFragment"
         android:label="@string/names_title"
-        tools:layout="@layout/fragment_names" >
+        tools:layout="@layout/fragment_names">
         <action
             android:id="@+id/action_namesFragment_to_likedFragment"
             app:destination="@id/likedFragment"
@@ -26,12 +26,20 @@
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/namesFragment" />
+        <action
+            android:id="@+id/action_namesFragment_to_quoteFragment"
+            app:destination="@id/quoteFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
+            app:popUpTo="@id/quoteFragment"/>
     </fragment>
     <fragment
         android:id="@+id/meaningFragment"
         android:name="com.hfad.ismlarmanosi2023.fragments.meaning.MeaningFragment"
         android:label="@string/search"
-        tools:layout="@layout/fragment_meaning" >
+        tools:layout="@layout/fragment_meaning">
         <argument
             android:name="currentItem"
             app:argType="com.hfad.ismlarmanosi2023.data.NamesData" />
@@ -41,4 +49,8 @@
         android:name="com.hfad.ismlarmanosi2023.fragments.liked.LikedFragment"
         android:label="@string/liked_title"
         tools:layout="@layout/fragment_liked" />
+    <fragment
+        android:id="@+id/quoteFragment"
+        android:name="com.hfad.ismlarmanosi2023.fragments.quotes.QuoteFragment"
+        android:label="@string/wise_quotes" />
 </navigation>

@@ -11,6 +11,51 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:adSize="BANNER"
+            app:adUnitId="ca-app-pub-8558811277281829/7356706337"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_quotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="13dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_input"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:padding="@dimen/padding_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adView1">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/wise_quotes"
+                android:textAlignment="center"
+                android:textColor="@color/beige"
+                android:textSize="@dimen/name_list_size"
+                android:textStyle="bold|italic" />
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="end"
+                android:contentDescription="@string/icon"
+                android:src="@drawable/ic_arrow_forward" />
+        </LinearLayout>
+
         <LinearLayout
             android:id="@+id/lo_search"
             android:layout_width="0dp"
@@ -24,7 +69,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/ll_quotes">
 
             <SearchView
                 android:id="@+id/search"
@@ -47,7 +92,7 @@
             android:layout_height="0dp"
             android:orientation="vertical"
             android:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@id/adView1"
+            app:layout_constraintBottom_toTopOf="@id/adView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -57,6 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
 
                 <TextView
                     android:id="@+id/nameList_LW"
@@ -118,7 +164,7 @@
         </LinearLayout>
 
         <com.google.android.gms.ads.AdView
-            android:id="@+id/adView1"
+            android:id="@+id/adView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -129,13 +175,9 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lo_names"
-            tools:layout_editor_absoluteY="24dp">
-
-        </com.google.android.gms.ads.AdView>
-
+            tools:layout_editor_absoluteY="24dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/drawer_view"
@@ -147,7 +189,7 @@
             android:id="@+id/fragment_menu"
             android:name="com.hfad.ismlarmanosi2023.fragments.MenuFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></fragment>
+            android:layout_height="match_parent" />
 
     </com.google.android.material.navigation.NavigationView>
 

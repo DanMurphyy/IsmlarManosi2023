@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId "com.hfad.ismlarmanosi2023"
-        minSdk 23
+        minSdk 24
         targetSdk 35
         versionCode 6
         versionName "4.2"
@@ -62,6 +62,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.8.3'
     implementation 'com.google.firebase:firebase-firestore:25.1.1'
     implementation 'com.google.firebase:firebase-auth:23.1.0'
+    implementation project(':quotes')
 
     kapt "androidx.room:room-compiler:2.6.1"
 
@@ -109,4 +110,7 @@ dependencies {
 
     // Utility
     implementation 'com.jakewharton:process-phoenix:2.1.1'
+
+    implementation "androidx.work:work-runtime-ktx:2.10.0"
+
 }

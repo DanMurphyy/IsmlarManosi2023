@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,212 +9,243 @@
     android:padding="5dp"
     tools:context=".fragments.MenuFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:text="@string/menu"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-
-    <LinearLayout
-        android:id="@+id/ll_liked_ones"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:background="@drawable/buttom_state"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        android:padding="@dimen/padding_size">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/liked"
-            android:textColor="@color/text_color"
-            android:textSize="@dimen/text_size"
-            android:textStyle="bold|italic" />
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="end"
-            android:contentDescription="@string/icon"
-            android:src="@drawable/ic_liked" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_not_found"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:background="@drawable/buttom_state"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        android:padding="@dimen/padding_size">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/could_not_find"
-            android:textColor="@color/text_color"
-            android:textSize="@dimen/text_size"
-            android:textStyle="bold|italic" />
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="end"
-            android:contentDescription="@string/icon"
-            android:src="@drawable/send" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_share"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:background="@drawable/buttom_state"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        android:padding="@dimen/padding_size">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/share_the_app"
-            android:textColor="@color/text_color"
-            android:textSize="@dimen/text_size"
-            android:textStyle="bold|italic" />
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="end"
-            android:contentDescription="@string/icon"
-            android:src="@drawable/sharing" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_rate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:background="@drawable/buttom_state"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        android:padding="@dimen/padding_size">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/rate_the_app"
-            android:textColor="@color/text_color"
-            android:textSize="@dimen/text_size"
-            android:textStyle="bold|italic" />
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="end"
-            android:contentDescription="@string/icon"
-            android:src="@drawable/rating" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll_others"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:background="@drawable/buttom_state"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        android:padding="@dimen/padding_size">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/our_other_apps"
-            android:textColor="@color/text_color"
-            android:textSize="@dimen/text_size"
-            android:textStyle="bold|italic" />
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="end"
-            android:contentDescription="@string/icon"
-            android:src="@drawable/other" />
-    </LinearLayout>
-
-    <ImageView
-        android:layout_width="250dp"
-        android:layout_height="170dp"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:backgroundTint="@color/white"
-        android:contentDescription="@string/icon"
-        android:src="@drawable/menuga" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/change_language_style"
-            android:textAlignment="center"
-            android:textColor="@color/text_color"
-            android:textSize="@dimen/text_size"
-            android:textStyle="bold|italic" />
+            android:orientation="vertical">
 
-        <RadioGroup
-            android:id="@+id/radio_group"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rb_lotincha"
-                style="@style/Widget.AppCompat.CompoundButton.Switch"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/lotincha" />
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:text="@string/menu"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
-            <RadioButton
-                android:id="@+id/rb_kirilcha"
-                style="@style/Widget.AppCompat.CompoundButton.Switch"
+            <LinearLayout
+                android:id="@+id/ll_liked_ones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:background="@drawable/buttom_state"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:padding="@dimen/padding_size">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/liked"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold|italic" />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="end"
+                    android:contentDescription="@string/icon"
+                    android:src="@drawable/ic_liked" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_not_found"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:background="@drawable/buttom_state"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:padding="@dimen/padding_size">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/could_not_find"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold|italic" />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="end"
+                    android:contentDescription="@string/icon"
+                    android:src="@drawable/send" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_share"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:background="@drawable/buttom_state"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:padding="@dimen/padding_size">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/share_the_app"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold|italic" />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="end"
+                    android:contentDescription="@string/icon"
+                    android:src="@drawable/sharing" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:background="@drawable/buttom_state"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:padding="@dimen/padding_size">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/rate_the_app"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold|italic" />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="end"
+                    android:contentDescription="@string/icon"
+                    android:src="@drawable/rating" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_others"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:background="@drawable/buttom_state"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:padding="@dimen/padding_size">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/our_other_apps"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold|italic" />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="end"
+                    android:contentDescription="@string/icon"
+                    android:src="@drawable/other" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="170dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/white"
+                android:contentDescription="@string/icon"
+                android:src="@drawable/menuga" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/change_language_style"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold|italic" />
+
+                <RadioGroup
+                    android:id="@+id/radio_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_lotincha"
+                        style="@style/Widget.AppCompat.CompoundButton.Switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/lotincha" />
+
+                    <RadioButton
+                        android:id="@+id/rb_kirilcha"
+                        style="@style/Widget.AppCompat.CompoundButton.Switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kirilcha" />
+
+                    <RadioButton
+                        android:id="@+id/rb_english"
+                        style="@style/Widget.AppCompat.CompoundButton.Switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/english" />
+
+                </RadioGroup>
+            </LinearLayout>
+
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/kirilcha" />
+                android:layout_gravity="center"
+                app:adSize="BANNER"
+                app:adUnitId="ca-app-pub-8558811277281829/7356706337" />
 
-            <RadioButton
-                android:id="@+id/rb_english"
-                style="@style/Widget.AppCompat.CompoundButton.Switch"
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/adView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/english" />
+                android:layout_gravity="center"
+                app:adSize="BANNER"
+                app:adUnitId="ca-app-pub-8558811277281829/7356706337" />
 
-        </RadioGroup>
-    </LinearLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
+
 
 </LinearLayout>

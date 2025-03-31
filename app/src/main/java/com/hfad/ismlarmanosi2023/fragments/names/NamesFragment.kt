@@ -14,7 +14,7 @@ import com.hfad.ismlarmanosi2023.MainActivity
 import com.hfad.ismlarmanosi2023.R
 import com.hfad.ismlarmanosi2023.data.NamesViewModel
 import com.hfad.ismlarmanosi2023.databinding.FragmentNamesBinding
-import com.hfad.ismlarmanosi2023.hideKeyboard
+import com.hfad.ismlarmanosi2023.utils.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 import jp.wasabeef.recyclerview.animators.LandingAnimator
 import kotlinx.coroutines.launch
@@ -43,6 +43,7 @@ class NamesFragment : Fragment() {
         }
         val adRequest = AdRequest.Builder().build()
         binding.adView1.loadAd(adRequest)
+        binding.adView2.loadAd(adRequest)
 
         showRecyclerView()
         searchList()
@@ -53,6 +54,9 @@ class NamesFragment : Fragment() {
             }
         }
 
+        binding.llQuotes.setOnClickListener {
+            findNavController().navigate(R.id.action_namesFragment_to_quoteFragment)
+        }
 
         return (binding.root)
     }

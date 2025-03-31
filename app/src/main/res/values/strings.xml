@@ -25,4 +25,22 @@
     <string name="update_available">Update available</string>
     <string name="update_now">Update now</string>
     <string name="a_new_version_is_available">A new version is available for free. \nUpdate to enjoy new features.</string>
+    <string name="link_for_app">Link for the application:\n</string>
+    <string name="share_with_frieds">Share with friends</string>
+    <string name="wise_quotes">Wise Quotes</string>
+    <string name="sample_word">A sample of wise words will be here\n</string>
+    <string name="author_of_the_word">Author of the quote</string>
+    <string name="ok">OK</string>
+    <string name="disclaimer">Disclaimer</string>
+    <string name="disclaimer_info">
+        \n The quotes and author names are for informational purposes only.
+        \n We are not responsible for any inaccuracies.
+        \n For corrections, contact :
+        \n danmurphyy2022@gmail.com.
+    </string>
+    <string name="notification_permission_needed">Notification Permission Needed</string>
+    <string name="receive_notifications">In order to receive notifications, please grant notification permission.</string>
+    <string name="cancel">Cancel</string>
+    <string name="settings">Settings</string>
+
 </resources>

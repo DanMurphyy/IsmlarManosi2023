@@ -16,7 +16,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.google.android.gms.ads.AdRequest
 import com.google.android.material.snackbar.Snackbar
 import com.hfad.ismlarmanosi2023.BuildConfig
@@ -46,7 +45,9 @@ class MeaningFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentMeaningBinding.inflate(inflater, container, false)
         val adRequest = AdRequest.Builder().build()
-        binding.adView2.loadAd(adRequest)
+        binding.adView3.loadAd(adRequest)
+        binding.adView4.loadAd(adRequest)
+        binding.adView5.loadAd(adRequest)
 
         showInfo()
         binding.shareM.setOnClickListener {
