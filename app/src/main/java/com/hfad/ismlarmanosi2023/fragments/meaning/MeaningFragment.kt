@@ -25,6 +25,7 @@ import com.hfad.ismlarmanosi2023.dataLiked.ImageUtil.girlImage
 import com.hfad.ismlarmanosi2023.dataLiked.LikedData
 import com.hfad.ismlarmanosi2023.dataLiked.LikedViewModel
 import com.hfad.ismlarmanosi2023.databinding.FragmentMeaningBinding
+import com.hfad.ismlarmanosi2023.language.MyPreference
 import java.io.File
 import java.io.FileOutputStream
 
@@ -35,6 +36,7 @@ class MeaningFragment : Fragment() {
 
     private val args by navArgs<MeaningFragmentArgs>()
     private val mLikedViewModel: LikedViewModel by viewModels()
+    lateinit var myPreference: MyPreference
 
     private var ImageIndex = 0
 
@@ -44,6 +46,8 @@ class MeaningFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentMeaningBinding.inflate(inflater, container, false)
+        myPreference = MyPreference(requireContext())
+
         val adRequest = AdRequest.Builder().build()
         binding.adView3.loadAd(adRequest)
         binding.adView4.loadAd(adRequest)
@@ -83,6 +87,15 @@ class MeaningFragment : Fragment() {
             Glide.with(this)
                 .load(randomGirlImage)
                 .into(binding.photoM)
+        }
+
+        val lang: String? = myPreference.getLoginCount()
+        if (lang == "en") {
+            binding.llContent.visibility = View.GONE
+            binding.txtNoContent.visibility = View.VISIBLE
+        } else {
+            binding.llContent.visibility = View.VISIBLE
+            binding.txtNoContent.visibility = View.GONE
         }
 
     }

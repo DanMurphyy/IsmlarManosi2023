@@ -17,6 +17,7 @@ import com.hfad.ismlarmanosi2023.data.NamesViewModel
 import com.hfad.ismlarmanosi2023.dataLiked.LikedData
 import com.hfad.ismlarmanosi2023.dataLiked.LikedViewModel
 import com.hfad.ismlarmanosi2023.databinding.FragmentLikedBinding
+import com.hfad.ismlarmanosi2023.language.MyPreference
 import dagger.hilt.android.AndroidEntryPoint
 import jp.wasabeef.recyclerview.animators.ScaleInAnimator
 import kotlinx.coroutines.launch
@@ -32,12 +33,16 @@ class LikedFragment : Fragment() {
 
     private val emptyDatabase: MutableLiveData<Boolean> = MutableLiveData(true)
 
+    private lateinit var myPreference: MyPreference
+
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentLikedBinding.inflate(inflater, container, false)
+
+        myPreference = MyPreference(requireContext())
 
         Glide.with(this)
             .load(R.drawable.family) // Assuming family is the name of your image resource
@@ -88,10 +93,21 @@ class LikedFragment : Fragment() {
     }
 
     private fun showEmptyDatabaseView(emptyDatabase: Boolean) {
+
+        val lang: String? = myPreference.getLoginCount()
+
         if (emptyDatabase) {
             binding.noDataLo.visibility = View.VISIBLE
         } else {
-            binding.noDataLo.visibility = View.INVISIBLE
+            if (lang == "en") {
+                binding.noDataLo.visibility = View.VISIBLE
+                binding.recyclerviewLiked.visibility = View.INVISIBLE
+            } else {
+                binding.noDataLo.visibility = View.INVISIBLE
+                binding.recyclerviewLiked.visibility = View.VISIBLE
+
+            }
+
         }
     }
 

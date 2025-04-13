@@ -42,5 +42,8 @@
     <string name="receive_notifications">Kundalik iqtoboslar olish uchun bildirishnomalarga ruxsat bering.</string>
     <string name="cancel">Bekor qilish</string>
     <string name="settings">Sozlamalar</string>
+    <string name="download_now">Hozir yuklab oling</string>
+    <string name="an_app_is_available">🚀 Yangi ilova, bepul! Hozir yuklab oling va ajoyib yangiliklardan bahramand bo\'ling! 🎉</string>
+    <string name="no_english_content">Kechirasiz — inglizcha kontent tez orada mavjud bo‘ladi.</string>
 
 </resources>

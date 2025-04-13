@@ -231,12 +231,12 @@ class QuoteFragment : Fragment() {
         shareIntent.type = "image/jpeg"
         shareIntent.putExtra(
             Intent.EXTRA_STREAM, FileProvider.getUriForFile(
-                requireContext(), "com.danmurphyy.masjidgo" + ".provider", file
+                requireContext(), "com.hfad.ismlarmanosi2023" + ".provider", file
             )
         )
         shareIntent.putExtra(
             Intent.EXTRA_TEXT,
-            getString(R.string.link_for_app) + "https://play.google.com/store/apps/details?id=com.danmurphyy.masjidgo"
+            getString(R.string.link_for_app) + "https://play.google.com/store/apps/details?id=com.hfad.ismlarmanosi2023"
         )
         shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 
