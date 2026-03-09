@@ -73,9 +73,11 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
-        val drawer: DrawerLayout = findViewById(R.id.lo_drawer)
+        val drawer = findViewById<DrawerLayout?>(R.id.lo_drawer)
         val builder = AppBarConfiguration.Builder(navController.graph)
-        builder.setOpenableLayout(drawer)
+        drawer?.let {
+            builder.setOpenableLayout(it)
+        }
         val appBarConfiguration = builder.build()
         toolbar.setupWithNavController(navController, appBarConfiguration)
 

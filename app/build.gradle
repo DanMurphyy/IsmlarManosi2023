@@ -9,15 +9,15 @@ plugins {
 }
 
 android {
-    compileSdk 35
+    compileSdk 36
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.hfad.ismlarmanosi2023"
         minSdk 24
-        targetSdk 35
-        versionCode 8
-        versionName "4.4"
+        targetSdk 36
+        versionCode 9
+        versionName "4.5"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

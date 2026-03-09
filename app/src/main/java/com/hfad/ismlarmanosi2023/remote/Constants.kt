@@ -1,7 +1,7 @@
 package com.hfad.ismlarmanosi2023.remote
 
 object Constants {
-    const val VERSION_NAME = "4.4"
+    const val VERSION_NAME = "4.5"
     const val REMOTE = "remote"
     const val APPPREFS = "app_prefs"
     const val REMOTECONFIGID = "HwlLXphx01VTt7KGXUZX"

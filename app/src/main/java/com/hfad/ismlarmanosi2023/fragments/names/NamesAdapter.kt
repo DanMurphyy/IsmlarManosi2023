@@ -3,6 +3,7 @@ package com.hfad.ismlarmanosi2023.fragments.names
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.hfad.ismlarmanosi2023.R
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.hfad.ismlarmanosi2023.data.NamesData
@@ -27,9 +28,17 @@ class NamesAdapter : RecyclerView.Adapter<NamesAdapter.MyViewHolder>() {
 
         binding.tvName.text = currentItem.name
         binding.tvName.setOnClickListener {
-            val action =
-                NamesFragmentDirections.actionNamesFragmentToMeaningFragment(dataList[position])
-            holder.itemView.findNavController().navigate(action)
+            val navController = holder.itemView.findNavController()
+
+            if (navController.currentDestination?.id == R.id.namesFragment) {
+
+                it.isEnabled = false
+
+                val action =
+                    NamesFragmentDirections.actionNamesFragmentToMeaningFragment(currentItem)
+
+                navController.navigate(action)
+            }
         }
     }
 
