@@ -13,11 +13,11 @@ class MyPreference @Inject constructor( val context: Context) {
     val preference: SharedPreferences =
         context.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
 
-    fun getLoginCount(): String? {
+    fun getLanguage(): String? {
         return preference.getString(PREFERENCE_LANGUAGE, "uz")
     }
 
-    fun setLoginCount(Language: String) {
+    fun setLanguage(Language: String) {
         val editor: SharedPreferences.Editor? = preference.edit()
         editor?.putString(PREFERENCE_LANGUAGE, Language)
         editor?.apply()

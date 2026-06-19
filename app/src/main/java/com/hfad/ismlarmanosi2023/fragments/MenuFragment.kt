@@ -12,6 +12,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.ads.AdRequest
 import com.hfad.ismlarmanosi2023.R
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import com.hfad.ismlarmanosi2023.databinding.FragmentMenuBinding
 import com.hfad.ismlarmanosi2023.language.MyPreference
 import com.jakewharton.processphoenix.ProcessPhoenix
@@ -34,6 +37,13 @@ class MenuFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         _binding = FragmentMenuBinding.inflate(inflater, container, false)
+        
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.updatePadding(top = systemBars.top)
+            insets
+        }
+
         myPreference = MyPreference(requireContext())
 
         binding.adView12.loadAd(adRequest)
@@ -59,7 +69,7 @@ class MenuFragment : Fragment() {
             share()
         }
 
-        var lang: String? = myPreference.getLoginCount()
+        var lang: String? = myPreference.getLanguage()
         when (lang) {
             "uz" -> binding.rbLotincha.isChecked = true
             "ru" -> binding.rbKirilcha.isChecked = true
@@ -75,7 +85,7 @@ class MenuFragment : Fragment() {
                 else -> "uz"
             }
             // Save the selected language in SharedPreferences
-            myPreference.setLoginCount(lang!!)
+            myPreference.setLanguage(lang!!)
             restartApp()
         }
 

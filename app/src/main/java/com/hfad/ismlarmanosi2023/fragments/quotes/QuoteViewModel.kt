@@ -18,8 +18,8 @@ class QuoteViewModel(
     private val preference: SharedPreferences =
         application.getSharedPreferences(PREFERENCE_NAME, Context.MODE_PRIVATE)
 
-    private fun getLoginCount(): String? {
-        return preference.getString(PREFERENCE_LANGUAGE, "uz")
+    private fun getLanguageCode(): String {
+        return preference.getString(PREFERENCE_LANGUAGE, "uz") ?: "uz"
     }
 
     private val _quoteData = MutableLiveData<List<Quotes>>()
@@ -30,16 +30,8 @@ class QuoteViewModel(
     }
 
     private fun getStartQuoteData() {
-        val lang = getLoginCount()
-
-        val quotes = when (lang) {
-            "uz" -> QuoteManager.startQuoteUz
-            "ru" -> QuoteManager.startQuoteRu
-            "en" -> QuoteManager.startQuoteEn
-            else -> QuoteManager.startQuoteEn
-        }
-
-        _quoteData.value = quotes
+        val lang = getLanguageCode()
+        _quoteData.value = QuoteManager.getQuotes(lang)
     }
 
 }

@@ -11,10 +11,15 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.drawerlayout.widget.DrawerLayout
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
@@ -33,6 +38,7 @@ import com.hfad.ismlarmanosi2023.remote.model.BannerModel
 import com.hfad.ismlarmanosi2023.remote.model.RemoteConfigModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -49,9 +55,12 @@ class MainActivity : AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        
+        setupWindowInsets()
         Log.d("AppLogging", "App started")
         MobileAds.initialize(this) {}
 
@@ -59,58 +68,64 @@ class MainActivity : AppCompatActivity() {
         fetchRemoteConfigAndUpdate()
     }
 
+    private fun setupWindowInsets() {
+        ViewCompat.setOnApplyWindowInsetsListener(binding.appBar) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.updatePadding(top = systemBars.top)
+            insets
+        }
+    }
+
     public override fun attachBaseContext(newbase: Context?) {
         myPreference = MyPreference(newbase!!)
-        val lang: String? = myPreference.getLoginCount()
+        val lang: String? = myPreference.getLanguage()
         super.attachBaseContext(MyContextWrapper.wrap(newbase, lang!!))
     }
 
     fun setupToolbarAndNavigation() {
-
         val toolbar: MaterialToolbar = binding.toolbar
         setSupportActionBar(toolbar)
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
-        val drawer = findViewById<DrawerLayout?>(R.id.lo_drawer)
-        val builder = AppBarConfiguration.Builder(navController.graph)
-        drawer?.let {
-            builder.setOpenableLayout(it)
-        }
-        val appBarConfiguration = builder.build()
+        
+        val drawerLayout = binding.drawerLayout
+        val appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
+        
         toolbar.setupWithNavController(navController, appBarConfiguration)
-
     }
 
     private fun fetchRemoteConfigAndUpdate() {
         sharedViewModel.getRemoteConfig(Constants.REMOTECONFIGID)
 
         Log.d("LogCheck", "fetchRemoteConfigAndUpdate")
-        lifecycleScope.launchWhenStarted {
-            sharedViewModel.remoteConfig.collectLatest { result ->
-                when (result) {
-                    is Resource.Success -> {
-                        result.data.let { remoteConfig ->
-                            if (remoteConfig.versionName != Constants.VERSION_NAME) {
-                                isUpdateBannerShown = true
-                                showUpdateBottomSheet(result.data)
-                            } else {
-                                if (!isUpdateBannerShown) {
-                                    if (!isAppInstalled(remoteConfig.banner.packageName)) {
-                                        isUpdateBannerShown = true
-                                        showBannerBottomSheet(remoteConfig.banner)
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                sharedViewModel.remoteConfig.collectLatest { result ->
+                    when (result) {
+                        is Resource.Success -> {
+                            result.data.let { remoteConfig ->
+                                if (remoteConfig.versionName != Constants.VERSION_NAME) {
+                                    isUpdateBannerShown = true
+                                    showUpdateBottomSheet(result.data)
+                                } else {
+                                    if (!isUpdateBannerShown) {
+                                        if (!isAppInstalled(remoteConfig.banner.packageName)) {
+                                            isUpdateBannerShown = true
+                                            showBannerBottomSheet(remoteConfig.banner)
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
 
-                    is Resource.Error -> {
-                        Log.e("MainActivityLOG", "Error fetching remote config: ${result.message}")
-                    }
+                        is Resource.Error -> {
+                            Log.e("MainActivityLOG", "Error fetching remote config: ${result.message}")
+                        }
 
-                    else -> {}
+                        else -> {}
+                    }
                 }
             }
         }

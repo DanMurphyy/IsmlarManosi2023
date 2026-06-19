@@ -89,7 +89,7 @@ class MeaningFragment : Fragment() {
                 .into(binding.photoM)
         }
 
-        val lang: String? = myPreference.getLoginCount()
+        val lang: String? = myPreference.getLanguage()
         if (lang == "en") {
             binding.llContent.visibility = View.GONE
             binding.txtNoContent.visibility = View.VISIBLE
@@ -111,28 +111,22 @@ class MeaningFragment : Fragment() {
     }
 
     private fun showSnackBar() {
-        val snackBar = Snackbar.make(
-            requireView(), getString(R.string.succesfullyAdded), Snackbar.LENGTH_SHORT
-        )
-        // Set the background color of the Snackbar to the specified color resource
-        val backgroundColor = ContextCompat.getColor(requireContext(), R.color.background)
-        snackBar.view.setBackgroundColor(backgroundColor)
+        val typedValue = android.util.TypedValue()
+        requireContext().theme.resolveAttribute(com.google.android.material.R.attr.colorSecondaryContainer, typedValue, true)
+        val bgColor = typedValue.data
+        requireContext().theme.resolveAttribute(com.google.android.material.R.attr.colorOnSecondaryContainer, typedValue, true)
+        val textColor = typedValue.data
 
-        // Set the text color of the Snackbar
-        val textColor = Color.BLACK // Set the desired text color here
-        snackBar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
-            ?.setTextColor(textColor)
-
-        // Set the bottom margin for the Snackbar view
-        val layoutParams = snackBar.view.layoutParams as ViewGroup.MarginLayoutParams
-        layoutParams.setMargins(20, 20, 20, 50) // Specify the margin in pixels here
-        snackBar.view.layoutParams = layoutParams
-        snackBar.duration = Snackbar.LENGTH_SHORT / 5
-
-        snackBar.show()
-        Handler().postDelayed({
-            snackBar.dismiss()
-        }, 1000)
+        Snackbar.make(
+            binding.root,
+            getString(R.string.succesfullyAdded),
+            Snackbar.LENGTH_SHORT
+        ).apply {
+            setBackgroundTint(bgColor)
+            setTextColor(textColor)
+            animationMode = Snackbar.ANIMATION_MODE_SLIDE
+            show()
+        }
     }
 
     private fun generateLayoutPhoto(): Bitmap {

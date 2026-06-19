@@ -19,6 +19,7 @@ class QuoteAdapter : RecyclerView.Adapter<QuoteAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        if (dataList.isEmpty()) return
         val currentItem = dataList[position % dataList.size]
         val binding = holder.binding
 
@@ -27,7 +28,7 @@ class QuoteAdapter : RecyclerView.Adapter<QuoteAdapter.MyViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return Int.MAX_VALUE
+        return if (dataList.isEmpty()) 0 else Int.MAX_VALUE
     }
 
     fun getItemPosition(position: Int): Int {

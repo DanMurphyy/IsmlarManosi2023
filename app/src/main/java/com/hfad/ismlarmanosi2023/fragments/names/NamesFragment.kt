@@ -127,10 +127,10 @@ class NamesFragment : Fragment() {
 
     private fun showEmptyDatabaseView(emptyDatabase: Boolean) {
         if (emptyDatabase) {
-            binding.loNames.visibility = View.INVISIBLE
+            binding.recyclerviewList.visibility = View.INVISIBLE
             binding.noNamesLo.visibility = View.VISIBLE
         } else {
-            binding.loNames.visibility = View.VISIBLE
+            binding.recyclerviewList.visibility = View.VISIBLE
             binding.noNamesLo.visibility = View.INVISIBLE
         }
     }

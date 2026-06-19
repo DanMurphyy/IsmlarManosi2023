@@ -27,7 +27,7 @@ object DatabaseModule {
         @ApplicationContext context: Context,
         myPreference: MyPreference,
     ): NamesDatabase {
-        val lang = myPreference.getLoginCount()
+        val lang = myPreference.getLanguage()
         val databaseFileName =
             if (lang == "en" || lang == "uz") "all_names.db" else "all_names_uzz.db"
 

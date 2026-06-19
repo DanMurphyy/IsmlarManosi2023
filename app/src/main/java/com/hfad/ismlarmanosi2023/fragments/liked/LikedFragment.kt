@@ -94,7 +94,7 @@ class LikedFragment : Fragment() {
 
     private fun showEmptyDatabaseView(emptyDatabase: Boolean) {
 
-        val lang: String? = myPreference.getLoginCount()
+        val lang: String? = myPreference.getLanguage()
 
         if (emptyDatabase) {
             binding.noDataLo.visibility = View.VISIBLE

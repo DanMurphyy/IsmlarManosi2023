@@ -2,6 +2,20 @@ package com.danmurphyy.quotes
 
 object QuoteManager {
 
+    fun getQuotes(lang: String): List<Quotes> {
+        return when (lang) {
+            "uz" -> startQuoteUz
+            "ru" -> startQuoteRu
+            "en" -> startQuoteEn
+            else -> startQuoteEn
+        }
+    }
+
+    fun getRandomQuote(lang: String): Quotes {
+        val quotes = getQuotes(lang)
+        return quotes.random()
+    }
+
     val startQuoteUz: List<Quotes> = listOf(
         Quotes(
             author = "Andrew Hendrixson",
@@ -48,7 +62,7 @@ object QuoteManager {
             quote = "Nuh kema qurayotganda yomg'ir yog'mayotgan edi"
         ),
         Quotes(
-            author = "Mualifi Noma'lum",
+            author = "Muallifi Noma'lum",
             quote = "Orzularingizga jiddiy qarang"
         ),
         Quotes(
@@ -56,7 +70,7 @@ object QuoteManager {
             quote = "Baxt sari yo'l yo'q. Baxtni o'zi yo'ldir"
         ),
         Quotes(
-            author = "Mualifi Noma'lum",
+            author = "Muallifi Noma'lum",
             quote = "Jahlni ichga yutish zahar ichib olib boshqa kishining o'lishini kutish bilan tengdir"
         ),
         Quotes(
@@ -72,7 +86,7 @@ object QuoteManager {
             quote = "Donishmandlik - 1% ilhomlanish va 99% harakatga bog'liq"
         ),
         Quotes(
-            author = "Mualifi Noma'lum",
+            author = "Muallifi Noma'lum",
             quote = "Qulay hududingiz juda yashi, ammo u verdan hech ganday hosil ola olmaysiz"
         ),
         Quotes(
