@@ -40,13 +40,6 @@ android {
         viewBinding true
     }
 
-    sourceSets {
-        main {
-            kotlin {
-                srcDirs += 'build/generated/source/navigation-args'
-            }
-        }
-    }
     namespace 'com.hfad.ismlarmanosi2023'
 }
 
