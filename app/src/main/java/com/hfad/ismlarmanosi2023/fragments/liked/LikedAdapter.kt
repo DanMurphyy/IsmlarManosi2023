@@ -1,7 +1,6 @@
 package com.hfad.ismlarmanosi2023.fragments.liked
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.content.Intent
@@ -16,7 +15,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.hfad.ismlarmanosi2023.BuildConfig
 import com.hfad.ismlarmanosi2023.R
 import com.hfad.ismlarmanosi2023.data.NamesData
 import com.hfad.ismlarmanosi2023.dataLiked.ImageUtil
@@ -27,8 +25,6 @@ import java.io.File
 import java.io.FileOutputStream
 
 class LikedAdapter : RecyclerView.Adapter<LikedAdapter.MyViewHolder>() {
-
-    private lateinit var appContext: Context
 
     var dataList = emptyList<LikedData>()
     var dataOriginList = emptyList<NamesData>()
@@ -99,71 +95,48 @@ class LikedAdapter : RecyclerView.Adapter<LikedAdapter.MyViewHolder>() {
             notifyItemRemoved(position)
         }
 
-        fun generateLayoutPhoto(): Bitmap {
-            // Find the root view of your layout
-            val rootView = binding.root
-
-            // Create a bitmap with the dimensions of the RecyclerView
-            val bitmap = Bitmap.createBitmap(
-                binding.root.width,
-                binding.root.height,
-                Bitmap.Config.ARGB_8888
-            )
-            // Create a canvas using the bitmap
-            val canvas = Canvas(bitmap)
-            // Draw the background of the root view onto the canvas
-            rootView.draw(canvas)
-            // Translate the canvas to the location of the RecyclerView within the root view
-            canvas.translate(binding.root.left.toFloat(), binding.root.top.toFloat())
-            // Draw the RecyclerView onto the canvas
-            binding.root.draw(canvas)
-
-            return bitmap
+        binding.shareL.setOnClickListener {
+            shareItem(holder.itemView.context, binding)
         }
+    }
 
-
-        fun shareLayoutPhoto(caption: String) {
-            // Generate a bitmap of the specific view
-            val bitmap = generateLayoutPhoto()
-
-            // Save the bitmap to a temporary file
-            val file = File(appContext.cacheDir, "layout_image.jpg")
+    private fun shareItem(context: Context, binding: RowLayoutLikedBinding) {
+        try {
+            val bitmap = generateLayoutPhoto(binding)
+            val file = File(context.cacheDir, "shared_name_${System.currentTimeMillis()}.jpg")
             val stream = FileOutputStream(file)
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 90, stream)
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream)
             stream.close()
 
-            // Create a share intent for the temporary file and the caption
-            val shareIntent = Intent(Intent.ACTION_SEND)
-            shareIntent.type = "image/jpeg"
-            shareIntent.putExtra(
-                Intent.EXTRA_STREAM,
-                FileProvider.getUriForFile(
-                    appContext,
-                    BuildConfig.APPLICATION_ID + ".provider",
-                    file
-                )
+            val uri = FileProvider.getUriForFile(
+                context,
+                "${context.packageName}.provider",
+                file
             )
-            shareIntent.putExtra(Intent.EXTRA_TEXT, caption)
-            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 
-            // Get the Activity context from the itemView's context
-            val activityContext = holder.itemView.context as? Activity
+            val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                type = "image/jpeg"
+                putExtra(Intent.EXTRA_STREAM, uri)
+                putExtra(Intent.EXTRA_TEXT, "Ilova uchun havola: https://play.google.com/store/apps/details?id=${context.packageName}")
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            }
 
-            // Show the share dialog using the Activity context
-            activityContext?.startActivity(
-                Intent.createChooser(
-                    shareIntent,
-                    "Share layout photo with caption"
-                )
-            )
+            context.startActivity(Intent.createChooser(shareIntent, "Share Name"))
+        } catch (e: Exception) {
+            Log.e("LikedAdapter", "Error sharing item", e)
         }
+    }
 
-        binding.shareL.setOnClickListener {
-            appContext = binding.root.context.applicationContext
-            generateLayoutPhoto()
-            shareLayoutPhoto("Ilova uchun havola:")
-        }
-
+    private fun generateLayoutPhoto(binding: RowLayoutLikedBinding): Bitmap {
+        val view = binding.root
+        val bitmap = Bitmap.createBitmap(
+            view.width,
+            view.height,
+            Bitmap.Config.ARGB_8888
+        )
+        val canvas = Canvas(bitmap)
+        view.draw(canvas)
+        return bitmap
     }
 
     @SuppressLint("NotifyDataSetChanged")

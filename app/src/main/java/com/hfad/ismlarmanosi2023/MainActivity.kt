@@ -65,7 +65,27 @@ class MainActivity : AppCompatActivity() {
         MobileAds.initialize(this) {}
 
         setupToolbarAndNavigation()
+        handleIntent(intent)
         fetchRemoteConfigAndUpdate()
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        handleIntent(intent)
+    }
+
+    private fun handleIntent(intent: Intent?) {
+        val screen = intent?.getStringExtra("screen")
+        if (screen == "quotes") {
+            val position = intent.getIntExtra("quote_position", -1)
+            val bundle = Bundle().apply {
+                putInt(Constants.QUESTION_POSITION, position)
+            }
+            val navHostFragment = supportFragmentManager
+                .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+            val navController = navHostFragment.navController
+            navController.navigate(R.id.quoteFragment, bundle)
+        }
     }
 
     private fun setupWindowInsets() {

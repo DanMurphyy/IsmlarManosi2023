@@ -15,6 +15,7 @@ import com.hfad.ismlarmanosi2023.R
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
+import com.hfad.ismlarmanosi2023.MainActivity
 import com.hfad.ismlarmanosi2023.databinding.FragmentMenuBinding
 import com.hfad.ismlarmanosi2023.language.MyPreference
 import com.jakewharton.processphoenix.ProcessPhoenix
@@ -50,7 +51,13 @@ class MenuFragment : Fragment() {
         binding.adView13.loadAd(adRequest)
 
         binding.llLikedOnes.setOnClickListener {
-            findNavController().navigate(R.id.action_namesFragment_to_likedFragment)
+            findNavController().navigate(R.id.likedFragment)
+            closeDrawer()
+        }
+
+        binding.llQuotes.setOnClickListener {
+            findNavController().navigate(R.id.quoteFragment)
+            closeDrawer()
         }
 
         binding.llNotFound.setOnClickListener {
@@ -100,6 +107,12 @@ class MenuFragment : Fragment() {
 
         // Finish the current activity (MenuFragment's parent activity)
         requireActivity().finish()
+    }
+
+    private fun closeDrawer() {
+        (requireActivity() as? MainActivity)?.let {
+            it.findViewById<androidx.drawerlayout.widget.DrawerLayout>(R.id.drawer_layout)?.closeDrawers()
+        }
     }
 
     private fun openTelegramChat() {

@@ -59,6 +59,34 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_quotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:background="@drawable/buttom_state"
+                android:clickable="true"
+                android:focusable="true"
+                android:gravity="center"
+                android:padding="@dimen/padding_size">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/wise_quotes"
+                    android:textColor="@color/text_color"
+                    android:textSize="@dimen/text_size"
+                    android:textStyle="bold|italic" />
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="end"
+                    android:contentDescription="@string/icon"
+                    android:src="@android:drawable/ic_menu_edit" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/ll_not_found"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

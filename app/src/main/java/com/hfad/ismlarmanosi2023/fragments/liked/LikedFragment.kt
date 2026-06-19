@@ -93,21 +93,12 @@ class LikedFragment : Fragment() {
     }
 
     private fun showEmptyDatabaseView(emptyDatabase: Boolean) {
-
-        val lang: String? = myPreference.getLanguage()
-
         if (emptyDatabase) {
             binding.noDataLo.visibility = View.VISIBLE
+            binding.recyclerviewLiked.visibility = View.INVISIBLE
         } else {
-            if (lang == "en") {
-                binding.noDataLo.visibility = View.VISIBLE
-                binding.recyclerviewLiked.visibility = View.INVISIBLE
-            } else {
-                binding.noDataLo.visibility = View.INVISIBLE
-                binding.recyclerviewLiked.visibility = View.VISIBLE
-
-            }
-
+            binding.noDataLo.visibility = View.INVISIBLE
+            binding.recyclerviewLiked.visibility = View.VISIBLE
         }
     }
 
